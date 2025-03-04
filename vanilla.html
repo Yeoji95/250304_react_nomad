@@ -8,15 +8,44 @@
 <body>
     <!--
         * index.html 에서 만들었던 버튼 카운터를 리액트로 변환
+        * React JS 의 규칙 중 하나: HTML 상세마크업을 여기에 직접 쓰지 않는다!
     -->
+        <div id="root"></div>
     
     <!--리액트를 사용하기 위한 cdn 연결-->
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script><!--react element들을 html에 놓게 만들어줌-->
 
     <script>
-        
-        
+        // html 마크업 대신 javascript 이용
+        // element 생성하는 '어려운' 방식 먼저 설명 (간단한 방법은 나중에)
+
+        const root = document.getElementById('root');
+        const h3 = React.createElement(
+            "h3",{
+                id: "title",
+                onMouseEnter: () => console.log('mouse enter'),
+            },
+            "Hello I'm a h3"
+        );
+
+        const btn = React.createElement(
+            'button', {
+                style: {
+                    backgroundColor: 'tomato',
+                },
+                onClick: () => console.log('im clicked'),
+            },
+            "Click me"
+        );
+        const container = React.createElement('div', null, [h3, btn]);
+        // React.createElement('span'): 생성만 되고 페이지엔 안 올라감, property(null, style, id, class 등등) 넣어줘야함
+        // Property에 이벤트리스너 넣어줄 수 있음
+
+        ReactDOM.render(container, root); // root 안에 생성
+
+
+        // *** 따라서 원래 하던 작업의 반대로 이루어짐 (js -> css -> html)
     </script>
 </body>
 </html>
