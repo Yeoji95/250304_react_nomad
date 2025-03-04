@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React for beginners with NOMADCODERS</title>
+</head>
+<body>
+    <!--
+        * 바닐라 자바스크립트로 버튼 카운터 만들기
+        * 이후 리액트로 똑같은 기능을 구현하면 얼마나 편해지는지 알아보기 위함!
+    -->
+    <span>Total clicks: 0</span>
+    <button id="btn">Click me</button>
+
+    <script>
+        let counter = 0;
+        const button = document.getElementById('btn');
+        const span = document.querySelector('span');
+        function handleClick() {
+            counter = counter+1;
+            span.innerText = `Total clicks: ${counter}`;
+        }
+        button.addEventListener('click', handleClick);
+        
+    </script>
+</body>
+</html>
