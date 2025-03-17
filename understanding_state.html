@@ -23,14 +23,14 @@
         let counter = 0;
         function countUp() {
             counter = counter + 1;
-            render();
+            render(); // 근데 매번 이렇게 렌더링해줘야 함
         }
 
         function render() {
             ReactDOM.render(<Container />, root); // 2. 이벤트 일어날때마다 UI 리프레쉬만 따로 해주면 됨
         }
 
-        // Render: 1. 헐 그냥 중괄호 열고 변수 집어넣으면 됨;; 이벤트리스너도 필요없음;;
+        // Render: 1. 헐 그냥 중괄호 열고 함수 집어넣으면 됨;; 이벤트리스너도 필요없음;;
         
         function Container() {
             return(
@@ -42,6 +42,9 @@
         };
 
         render(); // 초기 로드
+
+        // 실제로 작동해보면 '숫자'만 바뀜
+        // JS처럼 마크업을 싹다 갈아엎어서 업데이트하는게 아니라, 바뀌는 부분만 바꿔줌
 
 
     </script>
